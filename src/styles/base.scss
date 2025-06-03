@@ -1,0 +1,18 @@
+@use './fonts';
+
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+
+body {
+	font-family: "Montserrat", sans-serif;
+	background: #000e0e;
+	color: #d9ecec;
+}
+
+h1 {
+	font-family: "Calvert", sans-serif;
+	color: #feb300;
+}
