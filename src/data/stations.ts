@@ -1,4 +1,8 @@
-export const stations = {
+interface Stations {
+	[code: string]: string;
+}
+
+export const stations: Stations = {
 	APT: 'Airport',
 	BDE: 'Bede',
 	BFT: 'Bank Foot',
