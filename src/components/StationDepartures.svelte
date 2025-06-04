@@ -8,7 +8,7 @@
 	import { stations } from '../data/stations'
 	import type { Departure } from '../types'
 
-	const { stationCode } = $props()
+	const { stationCode, platform } = $props()
 
 	let departures = writable<Departure[]>([])
 
@@ -19,7 +19,7 @@
 	})
 
 	function getDepartures() {
-		fetch(`https://metro-rti.nexus.org.uk/api/times/${stationCode}/1`)
+		fetch(`https://metro-rti.nexus.org.uk/api/times/${stationCode}/${platform}`)
 		.then(response => response.json())
 		.then(data => {
 			departures.set(data)
