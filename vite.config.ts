@@ -4,6 +4,7 @@ import { defineConfig } from 'vite'
 
 export default defineConfig({
 	plugins: [sveltekit()],
+	// @ts-ignore
 	test: {
 		workspace: [
 			{
@@ -27,7 +28,6 @@ export default defineConfig({
 					exclude: ['src/**/*.svelte.{test,spec}.{js,ts}']
 				}
 			}
-		],
-		setupFiles: ['vitest.setup.ts']
+		]
 	}
 })
