@@ -40,7 +40,7 @@
 
 {#each Object.keys(stationList) as station}
 	<div class="station">
-		<p class="station__name">{stationList[station].name}</p>
+		<a href="/stations/{station}"><h2 class="station__name">{stationList[station].name}</h2></a>
 
 		{#each stationList[station].platforms as platform, i}
 			<label class="station__platform">
@@ -53,8 +53,13 @@
 
 <style lang="scss">
 	.station {
+		a {
+			text-decoration: none;
+		}
+		
 		&__name {
 			font-family: "Calvert", sans-serif;
+			font-size: 1.25rem;
 			font-weight: 700;
 		}
 

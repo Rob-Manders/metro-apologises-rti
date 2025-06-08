@@ -1,13 +1,21 @@
 <script>
 	import '../styles/base.scss';
+	import Metro from '../components/icons/Metro.svelte'
+	import Home from '../components/icons/Home.svelte'
 
 	let {children} = $props()
 </script>
 
 <header>
-	<a class="header-link" href="/">
+	<a class="header__icon__link" href="/">
+		<Home className="header__icon"/>
+	</a>
+	<a class="header" href="/">
 		<h1 class="main-header">Metro Apologises</h1>
 		<p>Live Departures</p>
+	</a>
+	<a class="header__icon__link" href="/stations">
+		<Metro className="header__icon"/>
 	</a>
 </header>
 
@@ -16,21 +24,45 @@
 </main>
 
 <footer>
-	<a href="about">About</a> - <a href="cookies">Cookies</a> - <a
-		href="https://github.com/Rob-Manders/metro-apologises-rti">GitHub</a>
+	<a href="/about">About</a> - <a href="/cookies">Cookies</a> - <a
+		href="https://github.com/Rob-Manders/metro-apologises-rti" target="_blank">GitHub</a>
 </footer>
 
 <style lang="scss">
 	@use '../styles/palette' as *;
 
-	header {
-		padding: 1rem;
+	:global(.header__icon) {
+		fill: $text-primary;
+		width: 1.5rem;
+		height: 1.5rem;
+		transition: fill 150ms ease-in-out;
 	}
 
-	.header-link {
+	header {
+		display: flex;
+		justify-content: space-between;
+		padding: 0.5rem;
+	}
+
+	.header__icon__link {
+		display: block;
+		width: 42px;
+		height: 42px;
+		padding: 0.5rem;
+
+		&:hover,
+		&:focus {
+			:global(.header__icon) {
+				fill: $metro-yellow;
+			}
+		}
+	}
+
+	.header {
 		display: block;
 		text-align: center;
 		font-family: "Calvert", sans-serif;
+		padding: 0.5rem;
 
 		&:hover,
 		&:focus {
