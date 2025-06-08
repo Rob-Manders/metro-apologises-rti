@@ -5,7 +5,14 @@
 </script>
 
 <header>
-	<h1>Metro Apologises</h1>
+	<h1 class="main-header">Metro Apologises</h1>
 </header>
 
 {@render children()}
+
+<style lang="scss">
+	.main-header {
+		font-size: 1.5rem;
+		text-align: center;
+	}
+</style>

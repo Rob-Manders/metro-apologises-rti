@@ -1,7 +1,10 @@
 <script>
-	import StationDepartures, { refresh } from "../components/StationDepartures.svelte";
+	import DepartureTimes, { refresh } from "../components/DepartureTimes.svelte";
 </script>
 
-<StationDepartures stationCode="GST" platform="1"/>
+<DepartureTimes stationCode="MTS" platform="1"/>
+<DepartureTimes stationCode="MTS" platform="2"/>
+<DepartureTimes stationCode="MTS" platform="3"/>
+<DepartureTimes stationCode="MTS" platform="4"/>
 
 <button onclick={refresh}>Refresh</button>

@@ -1,4 +1,5 @@
 @use './fonts';
+@use './palette' as *;
 
 *,
 *::before,
@@ -8,11 +9,11 @@
 
 body {
 	font-family: "Montserrat", sans-serif;
-	background: #000e0e;
-	color: #d9ecec;
+	background: $background-primary;
+	color: $text-primary;
 }
 
 h1 {
 	font-family: "Calvert", sans-serif;
-	color: #feb300;
+	color: $metro-yellow;
 }
