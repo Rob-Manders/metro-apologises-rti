@@ -8,12 +8,27 @@
 }
 
 body {
+	display: flex;
+	flex-direction: column;
 	font-family: "Montserrat", sans-serif;
 	background: $background-primary;
 	color: $text-primary;
+	min-height: 100vh;
+	margin: 0;
 }
 
 h1 {
 	font-family: "Calvert", sans-serif;
 	color: $metro-yellow;
+	margin: 0;
+}
+
+a {
+	color: $text-primary;
+	transition: color 150ms ease-in-out;
+
+	&:hover,
+	&:focus {
+		color: $metro-yellow;
+	}
 }

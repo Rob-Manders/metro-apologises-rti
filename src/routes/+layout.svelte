@@ -5,14 +5,61 @@
 </script>
 
 <header>
-	<h1 class="main-header">Metro Apologises</h1>
+	<a class="header-link" href="/">
+		<h1 class="main-header">Metro Apologises</h1>
+		<p>Live Departures</p>
+	</a>
 </header>
 
-{@render children()}
+<main>
+	{@render children()}
+</main>
+
+<footer>
+	<a href="about">About</a> - <a href="cookies">Cookies</a> - <a
+		href="https://github.com/Rob-Manders/metro-apologises-rti">GitHub</a>
+</footer>
 
 <style lang="scss">
+	@use '../styles/palette' as *;
+
+	header {
+		padding: 1rem;
+	}
+
+	.header-link {
+		display: block;
+		text-align: center;
+		font-family: "Calvert", sans-serif;
+
+		&:hover,
+		&:focus {
+			color: unset;
+		}
+
+		p {
+			font-size: 0.9rem;
+			margin: 0.25rem 0 0 0;
+		}
+	}
+
 	.main-header {
 		font-size: 1.5rem;
 		text-align: center;
+	}
+
+	main {
+		padding: 0 0.5rem;
+	}
+
+	footer {
+		text-align: center;
+		font-size: 0.65rem;
+		margin-top: auto;
+		padding: 1rem;
+	}
+
+	a {
+		text-decoration: none;
 	}
 </style>

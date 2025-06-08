@@ -30,7 +30,7 @@
 			departures.set(data)
 		})
 		.catch(error => {
-			console.log(error)
+			console.error('Error fetching departure times', error)
 		})
 	}
 </script>
@@ -82,7 +82,7 @@
 
 	.departures {
 		background: $background-secondary;
-		border-radius: 0.5rem;
+		border-radius: 8px;
 		overflow: hidden;
 	}
 

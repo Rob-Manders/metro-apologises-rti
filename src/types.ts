@@ -9,3 +9,8 @@ export interface Departure {
 	actualScheduledTime: string
 	actualPredictedTime: string
 }
+
+export interface PinnedStation {
+	code: string
+	platform: number
+}
