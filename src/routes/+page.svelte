@@ -1,10 +1,12 @@
 <script>
+	import { onMount } from 'svelte'
 	import { pinnedStations, setPinnedStationsFromCookie } from '../stores/pinnedStations.js'
 	import DepartureTimes from "../components/DepartureTimes.svelte"
-	import { onMount } from 'svelte'
 
 	onMount(async () => {
 		await setPinnedStationsFromCookie(document.cookie)
+
+		console.log($pinnedStations)
 	})
 </script>
 

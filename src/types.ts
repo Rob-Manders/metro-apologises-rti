@@ -14,3 +14,12 @@ export interface PinnedStation {
 	code: string
 	platform: number
 }
+
+export interface Station {
+	name: string
+	platforms: boolean[]
+}
+
+export interface StationList {
+	[code: string]: Station
+}
