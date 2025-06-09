@@ -1,6 +1,3 @@
-<script>
-</script>
-
 <div class="container">
 	<h2>About</h2>
 

@@ -10,5 +10,5 @@ export function createPinnedStationsCookie(): string {
 		return `${station.code}${station.platform}`
 	})
 
-	return `${cookieName}=${parsedPins.sort().join(',')}; expiry=${expiry} `
+	return `${cookieName}=${parsedPins.sort().join(',')}; expiry=${expiry}; SameSite=Lax`
 }

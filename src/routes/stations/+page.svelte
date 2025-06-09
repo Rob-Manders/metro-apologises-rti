@@ -10,6 +10,8 @@
 	import { buildStationList } from '../../util/buildStationList'
 	import { createPinnedStationsCookie } from '../../util/cookie'
 	import Search from '../../components/icons/Search.svelte'
+	import ToggleOn from '../../components/icons/ToggleOn.svelte'
+	import ToggleOff from '../../components/icons/ToggleOff.svelte'
 
 	let stationList: StationList = $state({})
 
@@ -55,7 +57,7 @@
 </div>
 
 <div class="info">
-	<p>Click on a station to see it's departures.</p>
+	<p>Click on a station to see its departures.</p>
 	<p>Pin platforms to show them on your home page.</p>
 </div>
 
@@ -63,12 +65,20 @@
 	<div class="station">
 		<a href="/stations/{station}"><h2 class="station__name">{stationList[station].name}</h2></a>
 
-		{#each stationList[station].platforms as platform, i}
-			<label class="station__platform">
-				Platform {i + 1}
-				<input type="checkbox" checked={platform} onchange={() => togglePlatform(station, i)}>
-			</label>
-		{/each}
+		<div class="station__platforms">
+			{#each stationList[station].platforms as pinned, i}
+				<label class="station__platform">
+					Platform {i + 1}
+					<button class="station__button" onclick={() => togglePlatform(station, i)}>
+						{#if pinned}
+							<ToggleOn className="station__toggle station__toggle--on"/>
+						{:else}
+							<ToggleOff className="station__toggle station__toggle--off"/>
+						{/if}
+					</button>
+				</label>
+			{/each}
+		</div>
 	</div>
 {/each}
 
@@ -131,11 +141,53 @@
 			font-family: "Calvert", sans-serif;
 			font-size: 1.25rem;
 			font-weight: 700;
+			margin-bottom: 0.5rem;
+		}
+
+		&__platforms {
+			background-color: var(--background-secondary);
+			border-radius: 8px;
+			overflow: hidden;
 		}
 
 		&__platform {
+			cursor: pointer;
 			display: flex;
 			justify-content: space-between;
+			align-items: center;
+			font-size: 0.9rem;
+			padding: 0 0.5rem;
 		}
+
+		&__button {
+			background: none;
+			padding: 0;
+			border: none;
+			outline: none;
+			pointer-events: none;
+			height: 2.25rem;
+
+			&:hover,
+			&:focus {
+				:global(.station__toggle) {
+					fill: var(--focus);
+					opacity: 1;
+				}
+			}
+		}
+	}
+
+	.station__platform + .station__platform {
+		border-top: 1px solid var(--divider);
+	}
+
+	:global(.station__toggle) {
+		width: 2.25rem;
+		fill: var(--text-primary);
+		opacity: 0.2;
+	}
+
+	:global(.station__toggle--on) {
+		opacity: 1;
 	}
 </style>
