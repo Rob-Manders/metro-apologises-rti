@@ -43,6 +43,9 @@
 	{/if}
 
 	<div class="departures">
+		{#if $departures.length === 0}
+			<p class="departures__none">No departures</p>
+		{/if}
 		{#each $departures as departure}
 			<div class="departure">
 				<div class="line line--{departure.line.toLocaleLowerCase()}">
@@ -82,6 +85,12 @@
 		background: var(--background-secondary);
 		border-radius: 8px;
 		overflow: hidden;
+
+		&__none {
+			text-align: center;
+			font-size: 0.8rem;
+			padding: 0.25rem;
+		}
 	}
 
 	.departure {
