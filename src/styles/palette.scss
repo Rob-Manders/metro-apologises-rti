@@ -1,7 +1,29 @@
-$background-primary: #040404;
-$background-secondary: #0a0a0a;
+:root {
+	--metro-yellow: #fcb929;
+	--metro-green: #2bb457;
 
-$text-primary: #e4e4e4;
+	--background-primary: #0a0a0a;
+	--background-secondary: #141414;
 
-$metro-yellow: #fcb929;
-$metro-green: #2bb457;
+	--text-header: #fcb929;
+	--text-primary: #e4e4e4;
+
+	--divider: #121212;
+	--focus: #fcb929;
+}
+
+@media (prefers-color-scheme: light) {
+	:root {
+		--metro-yellow: #daa123;
+		--metro-green: #259c4b;
+
+		--background-primary: #e4e4e4;
+		--background-secondary: #d5d5d5;
+
+		--text-header: #191919;
+		--text-primary: #0a0a0a;
+
+		--divider: #a6a6a6;
+		--focus: #259c4b;
+	}
+}

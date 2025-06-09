@@ -32,7 +32,7 @@
 	@use '../styles/palette' as *;
 
 	:global(.header__icon) {
-		fill: $text-primary;
+		fill: var(--text-primary);
 		width: 1.5rem;
 		height: 1.5rem;
 		transition: fill 150ms ease-in-out;
@@ -53,7 +53,7 @@
 		&:hover,
 		&:focus {
 			:global(.header__icon) {
-				fill: $metro-yellow;
+				fill: var(--focus);
 			}
 		}
 	}

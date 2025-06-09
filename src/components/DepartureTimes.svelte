@@ -63,8 +63,6 @@
 </div>
 
 <style lang="scss">
-	@use '../styles/palette' as *;
-
 	.container {
 		margin-bottom: 1rem;
 	}
@@ -81,7 +79,7 @@
 	}
 
 	.departures {
-		background: $background-secondary;
+		background: var(--background-secondary);
 		border-radius: 8px;
 		overflow: hidden;
 	}
@@ -91,7 +89,7 @@
 		gap: 0.25rem;
 
 		+ .departure {
-			border-top: 1px solid #121212;
+			border-top: 1px solid var(--divider);
 		}
 
 		p {
@@ -106,20 +104,28 @@
 		font-family: "Calvert", sans-serif;
 		font-size: 0.75rem;
 		font-weight: 700;
-		color: $background-secondary;
+		color: var(--background-secondary);
 		width: 1rem;
 		padding-bottom: 0.2rem;
 
+		@media (prefers-color-scheme: light) {
+			color: var(--text-primary);
+		}
+
 		span {
 			opacity: 0.5;
+
+			@media (prefers-color-scheme: light) {
+				opacity: 0.4;
+			}
 		}
 
 		&--green {
-			background-color: $metro-green;
+			background-color: var(--metro-green);
 		}
 
 		&--yellow {
-			background-color: $metro-yellow;
+			background-color: var(--metro-yellow);
 		}
 	}
 

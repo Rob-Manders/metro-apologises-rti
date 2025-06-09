@@ -11,24 +11,32 @@ body {
 	display: flex;
 	flex-direction: column;
 	font-family: "Montserrat", sans-serif;
-	background: $background-primary;
-	color: $text-primary;
+	background: var(--background-primary);
+	color: var(--text-primary);
 	min-height: 100vh;
 	margin: 0;
 }
 
 h1 {
 	font-family: "Calvert", sans-serif;
-	color: $metro-yellow;
+	color: var(--text-header);
 	margin: 0;
 }
 
 a {
-	color: $text-primary;
+	color: var(--text-primary);
 	transition: color 150ms ease-in-out;
 
 	&:hover,
 	&:focus {
-		color: $metro-yellow;
+		color: var(--focus);
+	}
+}
+
+@media (prefers-reduced-motion) {
+	*,
+	*::before,
+	*::after {
+		transition: 0.0001ms !important;
 	}
 }

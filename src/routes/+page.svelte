@@ -25,7 +25,7 @@
 	@use '../styles/palette' as *;
 
 	.select-stations {
-		background-color: $background-secondary;
+		background-color: var(--background-secondary);
 		text-align: center;
 		margin-top: 1rem;
 		padding: 1rem;
