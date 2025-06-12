@@ -14,8 +14,7 @@
 	<p>This site uses the <a href="https://github.com/danielgjackson/metro-rti">Metro Real Time Information API</a>,
 		which is provided by Nexus and documented by Daniel G Jackson.</p>
 
-	<p>This site uses cookies to power some functionality, but does not use any tracking or marketing cookies. For more
-		information, see the <a href="cookies">Cookies</a> page.</p>
+	<p>This site does not use cookies. However, we do use local storage to store your saved stations. No other data is stored, and we do not share this data outside of this application.</p>
 
 	<p>The source code for this site is available on <a
 			href="https://github.com/Rob-Manders/metro-apologises-rti">GitHub</a> under the MIT license.</p>

@@ -1,10 +1,12 @@
 <script>
 	import { onMount } from 'svelte'
-	import { pinnedStations, setPinnedStationsFromCookie } from '../stores/pinnedStations.js'
+	import { pinnedStations, setPinnedStationsFromLocalStorage } from '../stores/pinnedStations.js'
 	import DepartureTimes from "../components/DepartureTimes.svelte"
+	import { localStorageKey } from '../util/pinnedStations.js'
 
 	onMount(async () => {
-		await setPinnedStationsFromCookie(document.cookie)
+		const storedStations = localStorage.getItem(localStorageKey)
+		await setPinnedStationsFromLocalStorage(storedStations)
 
 		console.log($pinnedStations)
 	})

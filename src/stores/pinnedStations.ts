@@ -1,24 +1,21 @@
 import { get, type Writable, writable } from 'svelte/store'
 import type { PinnedStation, StationList } from '../types'
 import { buildStationList } from '../util/buildStationList'
-import { cookieName } from '../util/cookie'
+import { localStorageKey } from '../util/pinnedStations'
 
 export const pinnedStations: Writable<PinnedStation[]> = writable([])
 
-export async function setPinnedStationsFromCookie(cookie: string): Promise<void> {
-	const pinnedCookie = cookie.split(';').find((c) => {
-		return c.includes(cookieName)
-	})
-
-	if (!pinnedCookie) {
+export async function setPinnedStationsFromLocalStorage(localStorageValue: string | null): Promise<void> {
+	if (!localStorageValue || localStorageValue === "") {
 		return
 	}
 
-	let stations: string[] = pinnedCookie.split('=')[1].split(',') ?? []
+	let stations: string[] = localStorageValue.split(',') ?? []
 	if (stations.length < 1) {
 		return
 	}
 
+	stations = stations.map(station => station.trim())
 	stations.sort()
 
 	const pinned: PinnedStation[] = stations.map((s): PinnedStation => {

@@ -3,12 +3,12 @@
 	import {
 		pinnedStations,
 		pinStationPlatform,
-		setPinnedStationsFromCookie,
+		setPinnedStationsFromLocalStorage,
 		unpinStationPlatform
 	} from '../../stores/pinnedStations'
 	import type { StationList } from '../../types'
 	import { buildStationList } from '../../util/buildStationList'
-	import { createPinnedStationsCookie } from '../../util/cookie'
+	import { localStorageKey, stringifyPinnedStations } from '../../util/pinnedStations'
 	import Search from '../../components/icons/Search.svelte'
 	import ToggleOn from '../../components/icons/ToggleOn.svelte'
 	import ToggleOff from '../../components/icons/ToggleOff.svelte'
@@ -29,7 +29,8 @@
 	})
 
 	onMount(async () => {
-		await setPinnedStationsFromCookie(document.cookie)
+		const storedStations = localStorage.getItem(localStorageKey)
+		await setPinnedStationsFromLocalStorage(storedStations)
 
 		stationList = buildStationList($pinnedStations)
 	})
@@ -47,7 +48,7 @@
 			stationList = newList
 		}
 
-		document.cookie = createPinnedStationsCookie()
+		localStorage.setItem('pinned', stringifyPinnedStations())
 	}
 </script>
 

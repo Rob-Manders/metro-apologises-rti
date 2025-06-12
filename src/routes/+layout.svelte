@@ -24,8 +24,7 @@
 </main>
 
 <footer>
-	<a href="/about">About</a> - <a href="/cookies">Cookies</a> - <a
-		href="https://github.com/Rob-Manders/metro-apologises-rti" target="_blank">GitHub</a>
+	<a href="/about">About</a> - <a	href="https://github.com/Rob-Manders/metro-apologises-rti" target="_blank">GitHub</a>
 </footer>
 
 <style lang="scss">
